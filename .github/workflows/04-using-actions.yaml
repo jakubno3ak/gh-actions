@@ -13,5 +13,5 @@ jobs:
           curl -LsSf https://astral.sh/uv/install.sh | sh
       - name: Install Dependencies
         run: |
-          cd 04-using-actions
           uv sync
+        working-directory: 04-using-actions
