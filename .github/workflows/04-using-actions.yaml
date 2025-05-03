@@ -5,6 +5,9 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 04-using-actions
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -14,8 +17,7 @@ jobs:
       - name: Install Dependencies
         run: |
           uv sync
-        working-directory: 04-using-actions
+        ry: 04-using-actions
       - name: Run tests
         run: |
           uv run pytest
-        working-directory: 04-using-actions
