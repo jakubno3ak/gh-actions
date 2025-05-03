@@ -8,5 +8,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Printing folders
-        run: ls -la
+      - name: Setup UV
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+      - name: Install Dependencies
+        run: |
+          cd 04-using-actions
+          uv sync
