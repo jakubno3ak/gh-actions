@@ -5,7 +5,7 @@ on:
   push:
   workflow_dispatch:
     inputs:
-      debug:git agit 
+      debug:
         type: boolean
         default: false
 
