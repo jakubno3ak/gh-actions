@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from src.inference import Inference
 from settings import settings
+from src.app.models import PredictSentimentResponse, PredictSentimentRequest
 
 app = FastAPI()
 inference = Inference(settings=settings)
@@ -10,12 +11,10 @@ inference = Inference(settings=settings)
 async def health():
     return 200
 
-
 @app.get("/")
 async def home():
     return {"INFO": "Go to '/docs' endpoint"}
 
-
 @app.post("/predict")
-async def predict(text: str):
-    return {"sentiment": inference.predict(text)}
+async def predict(request: PredictSentimentRequest):
+    return PredictSentimentResponse(sentiment=inference.predict(request.text))
