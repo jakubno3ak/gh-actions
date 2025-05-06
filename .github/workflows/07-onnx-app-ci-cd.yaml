@@ -9,7 +9,6 @@ on:
         type: choice
         options:
           - integration
-          - deployment
           - all
         default: all
 
