@@ -23,7 +23,8 @@ integration = [
     "pytest>=8.3.5",
     "ruff>=0.11.8",
     "pydantic-settings>=2.9.1",
-    "pip-audit>=2.9.0"
+    "pip-audit>=2.9.0",
+    "httpx>=0.28.1",
 ]
 model-preparation = [
     "torch>=2.7.0",
