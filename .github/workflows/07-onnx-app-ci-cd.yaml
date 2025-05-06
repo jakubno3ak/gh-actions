@@ -1,4 +1,4 @@
-name: 07 - CI/CD for FastApi ONXX inference
+name: 07 - CI/CD for FastApi ONNX inference
 
 on:
   workflow_dispatch:
