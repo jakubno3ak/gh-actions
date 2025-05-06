@@ -45,7 +45,7 @@ jobs:
           uv run pytest tests
 
   deployment:
-    name: continuous-integration
+    name: continuous-deployment
     runs-on: ubuntu-latest
     needs: integration
     if: ${{ inputs.steps == 'all' && needs.integration.result == 'success' || inputs.steps == 'deployment' }}
@@ -60,16 +60,16 @@ jobs:
           curl -LsSf https://astral.sh/uv/install.sh | sh
       - name: Install Dependencies
         run: |
-          uv sync --group model-preparation
-      - name: Run Ruff Check
+          uv sync --group deployment
+      - name: Download model
         run: |
-          uv run ruff check . --fix
-      - name: Run Ruff Format
+          uv run python main.py --script download
+      - name: Export model to onnx
         run: |
-          uv run ruff format .
-      - name: Run Pip Audit
+          uv run python main.py --script export
+      - name: Build Docker
         run: |
-          uv run pip-audit --vulnerability-service pypi
-      - name: Run PyTest
+         uv run docker build -t polish-sentiment-app-onnx:latest .
+      - name: Push model to ECR
         run: |
-          uv run pytest tests
+          echo "Fill me! :)"
