@@ -22,6 +22,7 @@ inference = [
     { name = "uvicorn" },
 ]
 integration = [
+    { name = "fastapi" },
     { name = "httpx" },
     { name = "pip-audit" },
     { name = "pre-commit" },
@@ -52,6 +53,7 @@ inference = [
     { name = "uvicorn", specifier = ">=0.34.2" },
 ]
 integration = [
+    { name = "fastapi", specifier = ">=0.115.12" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "pip-audit", specifier = ">=2.9.0" },
     { name = "pre-commit", specifier = ">=4.2.0" },
