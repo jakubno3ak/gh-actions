@@ -1,0 +1,32 @@
+name: CI/CD for FastApi ONXX inference
+
+on: workflow_dispatch
+
+jobs:
+  continuous-integration:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 04-using-actions
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup UV
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+      - name: Install Dependencies
+        run: |
+          uv sync --group integration
+      - name: Run Ruff Check
+        run: |
+          uv run ruff check . --fix
+      - name: Run Ruff Format
+        run: |
+          uv run ruff format .
+      - name: Run Pip Audit
+        run: |
+          uv run pip-audit --vulnerability-service pypi
+      - name: Run PyTest
+        run: |
+          uv run pytest tests
+    
