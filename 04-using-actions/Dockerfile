@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install -y make && rm -rf /var/lib/apt/lists/*
 
-RUN pip install uv
+RUN pipx install uv
 
 COPY pyproject.toml uv.lock ./
 

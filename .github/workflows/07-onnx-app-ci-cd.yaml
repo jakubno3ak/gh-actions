@@ -68,7 +68,7 @@ jobs:
           uv run python main.py --script export
       - name: Build Docker
         run: |
-         uv run docker build -t polish-sentiment-app-onnx:latest .
+         docker build -t polish-sentiment-app-onnx:latest .
       - name: Push model to ECR
         run: |
           echo "Fill me! :)"
