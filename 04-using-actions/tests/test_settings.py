@@ -11,6 +11,7 @@
 
 from settings import Settings
 
+
 def test_default_values():
     """Test that default values are correctly set"""
     settings = Settings()
