@@ -32,10 +32,7 @@ jobs:
           uv sync --group integration
       - name: Run Ruff Check
         run: |
-          uv run ruff check . --fix
-      - name: Run Ruff Format
-        run: |
-          uv run ruff format .
+          uv run ruff check
       - name: Run Pip Audit
         run: |
           uv run pip-audit --vulnerability-service pypi
