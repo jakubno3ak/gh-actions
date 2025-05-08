@@ -19,7 +19,7 @@ COPY --from=builder /app/.venv /app/.venv
 
 COPY settings.py settings.py
 COPY app.py app.py
-COPY src/inference/ ./src/inference
+COPY src/ ./src/
 COPY artifacts/onnx/twitter-sentiment-pl-base.onnx ./artifacts/onnx/twitter-sentiment-pl-base.onnx
 COPY artifacts/tokenizer/tokenizer.json ./artifacts/tokenizer/tokenizer.json
 
